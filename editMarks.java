@@ -25,7 +25,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class addMarks extends JFrame {
+public class editMarks extends JFrame {
 
 private static final long serialVersionUID = 1L;
 private JPanel contentPane;
@@ -77,18 +77,18 @@ e.printStackTrace();
 
             preparedStatement.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Result Successfully Added");
+            JOptionPane.showMessageDialog(null, "Result Successfully updated");
 
         } catch (SQLException e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error occurred while Adding Result.");
+            JOptionPane.showMessageDialog(null, "Error occurred while updating Result.");
         }
     }
 
 /**
 * Create the frame.
 */
-public addMarks() {
+public editMarks() {
 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 setBounds(100, 100, 743, 553);
 contentPane = new JPanel();
@@ -104,7 +104,7 @@ panel_9.setBackground(new Color(128, 128, 192));
 panel_9.setBounds(0, 0, 764, 58);
 contentPane.add(panel_9);
 
-JLabel lblNewLabel_1 = new JLabel("Add Marks");
+JLabel lblNewLabel_1 = new JLabel("Edit Marks");
 lblNewLabel_1.setFont(new Font("Dyuthi", Font.BOLD, 35));
 lblNewLabel_1.setBounds(289, 0, 217, 58);
 panel_9.add(lblNewLabel_1);
@@ -230,7 +230,7 @@ btnNewButton.setFont(new Font("Dyuthi", Font.BOLD, 20));
 btnNewButton.setBounds(457, 445, 101, 41);
 contentPane.add(btnNewButton);
 
-JButton btnNewButton_1 = new JButton("Add");
+JButton btnNewButton_1 = new JButton("Edit");
 btnNewButton_1.setBackground(new Color(64, 128, 128));
 btnNewButton_1.addActionListener(new ActionListener() {
 public void actionPerformed(ActionEvent e) {

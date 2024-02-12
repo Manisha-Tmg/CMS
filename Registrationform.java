@@ -25,6 +25,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.SwingConstants;
 
 public class Registrationform extends JFrame {
 
@@ -59,8 +60,8 @@ public class Registrationform extends JFrame {
     }
 
     private void registerUser(String email, String password, String role, String first_name, String last_name,
-            String std_level, String std_course, String phone) {
-        String url = "jdbc:mysql://localhost:3306/cms";
+            String level, String course, String phone) {
+        String url = "jdbc:mysql://localhost:3306/cmss";
         String dbUsername = "root";
         String dbPassword = "";
 
@@ -74,8 +75,8 @@ public class Registrationform extends JFrame {
                     preparedStatement.setString(3, email);
                     preparedStatement.setString(4, password);
                     preparedStatement.setString(5, role);
-                    preparedStatement.setString(6, std_level);
-                    preparedStatement.setString(7, std_course);
+                    preparedStatement.setString(6, level);
+                    preparedStatement.setString(7, course);
                     preparedStatement.setString(8, phone);
                     preparedStatement.executeUpdate();
                 }
@@ -118,7 +119,7 @@ public class Registrationform extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 609, 599);
         confirmPassword = new JPanel();
-        confirmPassword.setBackground(new Color(64, 128, 128));
+        confirmPassword.setBackground(new Color(255, 255, 255));
         confirmPassword.setBorder(new EmptyBorder(5, 5, 5, 5));
 
         setContentPane(confirmPassword);
@@ -149,8 +150,8 @@ public class Registrationform extends JFrame {
         confirmPassword.add(lblPassword);
 
         JLabel lblConfirmPassword = new JLabel("Confirm Password");
-        lblConfirmPassword.setBackground(new Color(240, 240, 240));
         lblConfirmPassword.setBounds(21, 292, 206, 35);
+        lblConfirmPassword.setBackground(new Color(240, 240, 240));
         lblConfirmPassword.setFont(new Font("Arial", Font.BOLD, 20));
         confirmPassword.add(lblConfirmPassword);
 
@@ -188,8 +189,8 @@ public class Registrationform extends JFrame {
         confirmPassword.add(lblNewLabel_3);
 
         comboBox_1 = new JComboBox();
-        comboBox_1.setBackground(new Color(255, 255, 255));
         comboBox_1.setBounds(418, 348, 69, 33);
+        comboBox_1.setBackground(new Color(255, 255, 255));
         comboBox_1.setModel(new DefaultComboBoxModel(new String[] { "4", "5", "6" }));
         comboBox_1.setFont(new Font("Arial", Font.BOLD, 20));
         confirmPassword.add(comboBox_1);
@@ -200,15 +201,15 @@ public class Registrationform extends JFrame {
         confirmPassword.add(lblNewLabel_4);
 
         comboBox_2 = new JComboBox();
-        comboBox_2.setBackground(new Color(255, 255, 255));
         comboBox_2.setBounds(148, 437, 333, 35);
+        comboBox_2.setBackground(new Color(255, 255, 255));
         comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"BSc (Hons) Computer Science", "BSc (Hons) in International Business Management", "International MBA courses."}));
         comboBox_2.setFont(new Font("Arial", Font.BOLD, 20));
         confirmPassword.add(comboBox_2);
 
         JLabel Phone = new JLabel("Phone");
-        Phone.setFont(new Font("Arial", Font.BOLD, 20));
         Phone.setBounds(21, 389, 101, 35);
+        Phone.setFont(new Font("Arial", Font.BOLD, 20));
         confirmPassword.add(Phone);
 
         phone1 = new JTextField();
@@ -217,8 +218,8 @@ public class Registrationform extends JFrame {
         phone1.setColumns(10);
 
         JButton registerBtn = new JButton("Sign Up");
-        registerBtn.setBackground(new Color(255, 255, 255));
         registerBtn.setBounds(89, 502, 130, 35);
+        registerBtn.setBackground(new Color(64, 128, 128));
         registerBtn.setFont(new Font("Arial", Font.BOLD, 15));
         registerBtn.addActionListener(new ActionListener() {
 
@@ -278,14 +279,9 @@ public class Registrationform extends JFrame {
         });
         confirmPassword.add(registerBtn);
 
-        JLabel lblNewLabel = new JLabel("Registration form");
-        lblNewLabel.setBounds(148, 11, 289, 47);
-        lblNewLabel.setFont(new Font("Arial", Font.BOLD, 30));
-        confirmPassword.add(lblNewLabel);
-
         comboBox = new JComboBox();
-        comboBox.setBackground(new Color(255, 255, 255));
         comboBox.setBounds(181, 347, 120, 35);
+        comboBox.setBackground(new Color(255, 255, 255));
         comboBox.setFont(new Font("Arial", Font.BOLD, 20));
         comboBox.setModel(new DefaultComboBoxModel(new String[] { "Student", "Teacher", "Admin" }));
 
@@ -297,8 +293,8 @@ public class Registrationform extends JFrame {
         confirmPassword.add(lblNewLabel_1);
 
         JButton btnNewButton = new JButton("Login");
-        btnNewButton.setBackground(new Color(255, 255, 255));
         btnNewButton.setBounds(382, 502, 105, 35);
+        btnNewButton.setBackground(new Color(64, 128, 128));
         btnNewButton.setFont(new Font("Arial", Font.BOLD, 15));
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -308,6 +304,17 @@ public class Registrationform extends JFrame {
             }
         });
         confirmPassword.add(btnNewButton);
+        
+        JPanel panel = new JPanel();
+        panel.setBackground(new Color(128, 128, 192));
+        panel.setBounds(0, 0, 595, 58);
+        confirmPassword.add(panel);
+        
+                JLabel lblNewLabel = new JLabel("Registration form");
+                panel.add(lblNewLabel);
+                lblNewLabel.setBackground(new Color(128, 128, 0));
+                lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+                lblNewLabel.setFont(new Font("Arial", Font.BOLD, 30));
 
         comboBox.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {

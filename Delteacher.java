@@ -40,7 +40,7 @@ public class Delteacher extends JFrame {
 		});
 	}
 	public void deletename1(int id) {
-		String url = "jdbc:mysql://localhost:3306/cms";
+		String url = "jdbc:mysql://localhost:3306/cmss";
         String dbUsername = "root";
         String dbPassword = "";
         try (Connection connection = DriverManager.getConnection(url, dbUsername, dbPassword);

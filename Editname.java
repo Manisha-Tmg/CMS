@@ -53,7 +53,7 @@ public class Editname extends JFrame {
 	}
 	//update studentname
 	private void editname(int ID, String firstname, String lastname, String email, String password,int level,String courses) {
-		   String url = "jdbc:mysql://localhost:3306/cms";
+		   String url = "jdbc:mysql://localhost:3306/cmss";
 		   String dbUsername = "root";
 		   String dbPassword = "";
 

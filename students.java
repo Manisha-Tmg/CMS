@@ -29,7 +29,7 @@ public class students extends JPanel {
         DefaultTableModel model = new DefaultTableModel();
 
         try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cms", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cmss", "root", "");
             Statement stmt = con.createStatement();
             String query = "SELECT id,firstname, lastname, email, course, phone, level FROM users WHERE role='Student'";
             ResultSet rs = stmt.executeQuery(query);

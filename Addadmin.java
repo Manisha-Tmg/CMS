@@ -46,7 +46,7 @@ public class Addadmin extends JFrame {
 	}
 
 	private void Addadmin(String firstname, String lastname,String email,String password,String phone) {
-        String url = "jdbc:mysql://localhost:3306/cms";
+        String url = "jdbc:mysql://localhost:3306/cmss";
          String dbUsername = "root";
          String dbPassword = "";
 

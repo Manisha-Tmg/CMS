@@ -42,7 +42,7 @@ public class Delcourse extends JFrame {
 	
 	//for delete
 	public void deleteCourse1(int id) {
-		String url = "jdbc:mysql://localhost:3306/cms";
+		String url = "jdbc:mysql://localhost:3306/cmss";
         String dbUsername = "root";
         String dbPassword = "";
         try (Connection connection = DriverManager.getConnection(url, dbUsername, dbPassword);

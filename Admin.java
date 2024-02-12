@@ -29,7 +29,7 @@ public class Admin extends JPanel {
         DefaultTableModel model = new DefaultTableModel();
 
         try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cms", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cmss", "root", "");
             Statement stmt = con.createStatement();
             String query = "Select id,firstname, lastname, email, phone FROM users WHERE role='Admin'";
             ResultSet rs = stmt.executeQuery(query);

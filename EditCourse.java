@@ -43,7 +43,7 @@ public class EditCourse extends JFrame {
 		});
 	}
 	//update course
-	String url = "jdbc:mysql://localhost:3306/cms";
+	String url = "jdbc:mysql://localhost:3306/cmss";
     String dbUsername = "root";
     String dbPassword = "";
     

@@ -51,20 +51,21 @@ public class Addname extends JFrame {
 	}
 	//add student 
 	private void addname(String firstname, String lastname,String email,String course,String password,String phone,int level) {
-        String url = "jdbc:mysql://localhost:3306/cms";
+        String url = "jdbc:mysql://localhost:3306/cmss";
          String dbUsername = "root";
          String dbPassword = "";
 
          try (Connection connection = DriverManager.getConnection(url, dbUsername, dbPassword)) {
-             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO users (firstname, lastname,email,password,course,phone,level,role) VALUES (?,?,?,?,?,?,?,'Student');");
+        	 PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO users (firstname, lastname, email, role, course, phone, level, password) VALUES (?, ?, ?, 'Student', ?, ?, ?, ?)");
 //             preparedStatement.setInt(1,id);
              preparedStatement.setString(1,firstname);
              preparedStatement.setString(2, lastname);
              preparedStatement.setString(3,email);
-             preparedStatement.setString(4, password);
-             preparedStatement.setString(5, course);
-             preparedStatement.setString(6, phone);
-             preparedStatement.setInt(7, level);
+             preparedStatement.setString(4, course);
+             preparedStatement.setString(5, phone);
+             preparedStatement.setInt(6, level);
+             preparedStatement.setString(7, password);
+
              preparedStatement.executeUpdate();
              
              JOptionPane.showMessageDialog(null, "Added successfully");
@@ -106,15 +107,16 @@ public class Addname extends JFrame {
 				String firstN = firstname.getText();
 				String lastN = lastname.getText();
 				String emailN = email.getText();
-				String passw = password.getText();
 				String cours = (String)courses.getSelectedItem();
 				String p = phone1.getText();
 				String level = (String)level1.getSelectedItem();
+				String passw = password.getText();
+
 			
 				
-				if(!firstN.isEmpty() && !lastN.isEmpty() && !emailN.isEmpty()&& !passw.isEmpty() && !cours.isEmpty() && !p.isEmpty()&& !level.isEmpty()){
+				if(!firstN.isEmpty() && !lastN.isEmpty() && !emailN.isEmpty() && !cours.isEmpty() && !p.isEmpty()&& !level.isEmpty() && !passw.isEmpty()){
 					int l= Integer.parseInt(level);
-					addname (firstN,lastN,emailN,passw,cours,p,l);
+					addname (firstN,lastN,emailN,cours,p,passw,l);
 				}else {
 				JOptionPane.showMessageDialog(null,"This message can't be print");
 				}
@@ -143,30 +145,30 @@ public class Addname extends JFrame {
 		
 		JLabel lblPassword = new JLabel("Password");
 		lblPassword.setFont(new Font("Arial", Font.BOLD, 20));
-		lblPassword.setBounds(12, 217, 103, 30);
+		lblPassword.setBounds(10, 299, 103, 30);
 		contentPane.add(lblPassword);
 		
 		JLabel lblCourses = new JLabel("Courses");
 		lblCourses.setFont(new Font("Arial", Font.BOLD, 20));
-		lblCourses.setBounds(12, 259, 89, 30);
+		lblCourses.setBounds(12, 217, 89, 30);
 		contentPane.add(lblCourses);
 		
 		JLabel lblLevel = new JLabel("Level");
 		lblLevel.setFont(new Font("Arial", Font.BOLD, 20));
-		lblLevel.setBounds(12, 308, 82, 30);
+		lblLevel.setBounds(10, 258, 82, 30);
 		contentPane.add(lblLevel);
 		
 		level1 = new JComboBox();
 		level1.setFont(new Font("Arial", Font.BOLD, 20));
 		level1.setModel(new DefaultComboBoxModel(new String[] {"4", "5", "6"}));
 		level1.setToolTipText("456");
-		level1.setBounds(145, 308, 82, 30);
+		level1.setBounds(145, 267, 82, 30);
 		contentPane.add(level1);
 		
 		courses = new JComboBox();
 		courses.setFont(new Font("Arial", Font.BOLD, 15));
 		courses.setModel(new DefaultComboBoxModel(new String[] {"BSc (Hons) Computer Science", "BSc (Hons) in International Business Management", "International MBA courses."}));
-		courses.setBounds(145, 261, 328, 36);
+		courses.setBounds(145, 220, 328, 36);
 		contentPane.add(courses);
 		
 		phone1 = new JTextField();
@@ -175,7 +177,7 @@ public class Addname extends JFrame {
 		phone1.setColumns(10);
 		
 		password = new JPasswordField();
-		password.setBounds(145, 220, 328, 30);
+		password.setBounds(145, 308, 328, 30);
 		contentPane.add(password);
 		
 		JLabel lblNewLabel = new JLabel("Firstname");

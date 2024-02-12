@@ -30,7 +30,7 @@ public class course extends JPanel {
 		DefaultTableModel model = new DefaultTableModel();
 
         try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cms", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cmss", "root", "");
             Statement stmt = con.createStatement();
             String query = "Select * from courses";//(firstname)
             ResultSet rs = stmt.executeQuery(query);

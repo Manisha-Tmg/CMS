@@ -46,7 +46,7 @@ public class Editteacher extends JFrame {
 		});
 	}
 	private void editteacher(int id1,String firstname, String lastname, String email, String password) {
-		   String url = "jdbc:mysql://localhost:3306/cms";
+		   String url = "jdbc:mysql://localhost:3306/cmss";
 		   String dbUsername = "root";
 		   String dbPassword = "";
 

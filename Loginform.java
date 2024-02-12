@@ -49,7 +49,7 @@ public class Loginform extends JFrame {
      * Create the frame.
      */
     private boolean checkLogin(String username, String password) {
-        String url = "jdbc:mysql://localhost:3306/cms";
+        String url = "jdbc:mysql://localhost:3306/cmss";
         String dbUsername = "root";
         String dbPassword = "";
 
@@ -72,43 +72,35 @@ public class Loginform extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 510, 476);
         contentPane = new JPanel();
-        contentPane.setBackground(new Color(64, 128, 128));
+        contentPane.setBackground(new Color(255, 255, 255));
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
         setContentPane(contentPane);
         contentPane.setLayout(null);
         
-        JLabel lblLogin = new JLabel("Login ");
-        lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
-        lblLogin.setForeground(new Color(0, 0, 0));
-        lblLogin.setBounds(180, 0, 118, 43);
-        lblLogin.setBackground(new Color(255, 255, 255));
-        lblLogin.setFont(new Font("Arial", Font.BOLD, 35));
-        contentPane.add(lblLogin);
-        
         JLabel lblEmail = new JLabel("Email");
-        lblEmail.setBounds(26, 127, 88, 35);
+        lblEmail.setBounds(106, 86, 88, 35);
         lblEmail.setFont(new Font("Arial", Font.BOLD, 25));
         contentPane.add(lblEmail);
         
         JLabel lblPassword = new JLabel("Password");
-        lblPassword.setBounds(26, 196, 159, 35);
+        lblPassword.setBounds(106, 197, 159, 35);
         lblPassword.setFont(new Font("Arial", Font.BOLD, 25));
         contentPane.add(lblPassword);
         
         textField = new JTextField();
-        textField.setBounds(180, 115, 246, 36);
+        textField.setBounds(106, 121, 257, 36);
         textField.setBackground(new Color(255, 255, 255));
         contentPane.add(textField);
         textField.setColumns(10);
         
         passwordField = new JPasswordField();
-        passwordField.setBounds(180, 199, 246, 36);
+        passwordField.setBounds(106, 230, 257, 36);
         contentPane.add(passwordField);
         
         JButton btnLogin = new JButton("Login");
-        btnLogin.setBounds(164, 278, 118, 43);
-        btnLogin.setBackground(new Color(255, 255, 255));
+        btnLogin.setBounds(182, 293, 118, 43);
+        btnLogin.setBackground(new Color(64, 128, 128));
         btnLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	String username =textField.getText();
@@ -118,6 +110,9 @@ public class Loginform extends JFrame {
         			Dashborad db = new Dashborad(username);
         			db.setVisible(true);
         			dispose();
+        		   }
+        		else {
+        			JOptionPane.showMessageDialog(null,"Please! Enter correct details");
         		}
         		
             }
@@ -125,27 +120,36 @@ public class Loginform extends JFrame {
         btnLogin.setFont(new Font("Dialog", Font.BOLD, 25));
         contentPane.add(btnLogin);
         
-        JLabel lblCreateANew = new JLabel("Create a new account ?");
-        lblCreateANew.setBounds(10, 364, 218, 28);
-        lblCreateANew.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 18));
-        contentPane.add(lblCreateANew);
-        
-        JButton btnNewButton = new JButton("Sign up");
-        btnNewButton.setBounds(225, 360, 117, 36);
+        JButton btnNewButton = new JButton("Create a new account ?");
+        btnNewButton.setBounds(137, 357, 226, 36);
         btnNewButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		Loginform lf = new Loginform();
+        		Registrationform lf = new Registrationform();
         		lf.setVisible(true);
         		dispose();     		
 
         	}
         });
-        btnNewButton.setBackground(new Color(255, 255, 255));
+        btnNewButton.setBackground(new Color(64, 128, 128));
         btnNewButton.setFont(new Font("Dialog", Font.BOLD, 15));
         contentPane.add(btnNewButton);
         
         JLabel label = new JLabel("");
         label.setBounds(61, 243, 70, 15);
         contentPane.add(label);
+        
+        JPanel panel = new JPanel();
+        panel.setBackground(new Color(128, 128, 192));
+        panel.setBounds(0, 0, 496, 64);
+        contentPane.add(panel);
+        panel.setLayout(null);
+        
+        JLabel lblLogin = new JLabel("Login ");
+        lblLogin.setBounds(195, 0, 105, 64);
+        panel.add(lblLogin);
+        lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
+        lblLogin.setForeground(new Color(0, 0, 0));
+        lblLogin.setBackground(new Color(255, 255, 255));
+        lblLogin.setFont(new Font("Arial", Font.BOLD, 35));
     }
 }

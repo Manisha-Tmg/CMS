@@ -44,7 +44,7 @@ public class AddCourse extends JFrame {
 	
 	//add course 
 	private void addCourse1( String Name, int years) {
-        String url = "jdbc:mysql://localhost:3306/cms";
+        String url = "jdbc:mysql://localhost:3306/cmss";
          String dbUsername = "root";
          String dbPassword = "";
 
